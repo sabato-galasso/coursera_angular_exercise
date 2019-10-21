@@ -1,0 +1,30 @@
+{
+  "name": "coursera",
+  "version": "1.0.0",
+  "description": "course",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/Sabaz/coursera.git"
+  },
+  "keywords": [
+    "course"
+  ],
+  "author": "Sabatino",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/Sabaz/coursera#readme",
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  },
+  "dependencies": {
+    "@angular/animations": "^8.2.11",
+    "@angular/cdk": "^8.2.3",
+    "@angular/material": "^8.2.3",
+    "hammerjs": "^2.0.8"
+  }
+}
