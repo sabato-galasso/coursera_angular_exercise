@@ -11,7 +11,7 @@ import {Promotion} from "../menu/shared/Promotion";
 })
 export class HomeComponent implements OnInit {
 
-  dish : Dish;
+  dish: Dish;
   promotion: Promotion;
 
   constructor(private dishservice: DishService,

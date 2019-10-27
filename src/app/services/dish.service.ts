@@ -7,13 +7,16 @@ import {DISHES} from "../menu/shared/dishes";
 })
 export class DishService {
 
-  constructor() { }
-
-  getDishes(id : string): Dish{
-    return DISHES.filter((dish) => (dish.id  === id))[0];
+  getDishes(): Dish[] {
+    return DISHES;
   }
 
-  getFeaturedDish(): Dish{
-return DISHES.filter((dish) => (dish.featured))[0]
+  getDish(id: string): Dish {
+    return DISHES.filter((dish) => (dish.id === id))[0];
+  }
+
+  getFeaturedDish(): Dish {
+    console.log(DISHES.filter((dish) => dish.featured)[0])
+    return DISHES.filter((dish) => dish.featured)[0];
   }
 }
