@@ -18,6 +18,8 @@ import {AppRoutingModule} from "./app-routing/app-routing.module";
 import {PromotionService} from "./services/promotion.service";
 import {LeaderService} from "./services/leader.service";
 import {MatIconModule} from "@angular/material/icon";
+import { LoginComponent } from './login/login.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import {MatIconModule} from "@angular/material/icon";
     FooterComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -39,9 +42,11 @@ import {MatIconModule} from "@angular/material/icon";
     MatCardModule,
     MatButtonModule,
     AppRoutingModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
 
   ],
+  entryComponents:[LoginComponent],
   providers: [DishService, PromotionService, LeaderService],
   bootstrap: [AppComponent]
 })
