@@ -20,6 +20,12 @@ import {LeaderService} from "./services/leader.service";
 import {MatIconModule} from "@angular/material/icon";
 import { LoginComponent } from './login/login.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -43,7 +49,14 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatButtonModule,
     AppRoutingModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule,
+    MatSelectModule
 
   ],
   entryComponents:[LoginComponent],
