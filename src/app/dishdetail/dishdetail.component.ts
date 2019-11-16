@@ -23,8 +23,10 @@ export class DishdetailComponent implements OnInit {
   commentForm: FormGroup;
   comment: Comment;
   errMess: string;
+  dishcopy: Dish;
 
-  constructor(private dishservice: DishService,
+
+  constructor(private dishService: DishService,
               private route: ActivatedRoute,
               private location: Location,
               private fb: FormBuilder,
@@ -51,12 +53,13 @@ export class DishdetailComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds,errmess => this.errMess = <any>errmess);
-    this.route.params.pipe(switchMap((params: Params) => this.dishservice.getDish(params['id'])))
+    this.dishService.getDishIds().subscribe(dishIds => this.dishIds = dishIds,errmess => this.errMess = <any>errmess);
+    this.route.params.pipe(switchMap((params: Params) => this.dishService.getDish(params['id'])))
       .subscribe(dish => {
         this.dish = dish;
+        this.dishcopy = dish;
         this.setPrevNext(dish.id);
-      });
+      },errmess => this.errMess = <any>errmess );
   }
 
   goBack(): void {
@@ -73,7 +76,7 @@ export class DishdetailComponent implements OnInit {
     this.commentForm = this.fb.group(
       {
         author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
-        rating: ['5'],
+        rating: [5],
         comment: ['', [Validators.required, Validators.minLength(2)]],
       }
     );
@@ -94,9 +97,19 @@ export class DishdetailComponent implements OnInit {
     this.comment = this.commentForm.value;
     let now = new Date();
     this.comment.date = now.toISOString();
+    debugger
     this.dish.comments.push(this.comment);
+    this.dishcopy.comments.push(this.comment);
+    console.log(this.dishcopy)
+
+    this.dishService.putDish(this.dishcopy)
+      .subscribe(dish => {
+          this.dish = dish; this.dishcopy = dish;
+        },
+        errmess => { this.dish = null; this.dishcopy = null; this.errMess = <any>errmess; });
     this.commentFormDirective.resetForm();
     this.commentForm.controls['rating'].setValue(5);
+
   }
 
   onValueChanged(data?: any) {
