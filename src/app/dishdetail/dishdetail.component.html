@@ -6,7 +6,7 @@
      fxLayoutGap="10px"
      fxLayoutGap.xs="0">
 
-  <div fxFlex="40">
+  <div fxFlex="40" *ngIf="dish" [@visibility]="visibility">
     <mat-card *ngIf="dish">
       <mat-card-header>
         <mat-card-title>
@@ -38,7 +38,7 @@
   </div>
 
 
-  <div fxFlex="40">
+  <div fxFlex="40" *ngIf="dish" [@visibility]="visibility">
     <mat-list role="list" *ngIf="dish">
       <h2>Comments</h2>
       <mat-list-item role="listitem" *ngFor="let comment of dish.comments">
@@ -51,10 +51,7 @@
         </p>
       </mat-list-item>
     </mat-list>
-    <div [hidden]="dish">
-      <mat-spinner></mat-spinner>
-      <h4>Loading . . . Please Wait</h4>
-    </div>
+
 
 
     <form novalidate [formGroup]="commentForm" #fform="ngForm" (ngSubmit)="onSubmit()">
@@ -97,5 +94,8 @@
 
     </form>
   </div>
-
+  <div [hidden]="dish">
+    <mat-spinner></mat-spinner>
+    <h4>Loading . . . Please Wait</h4>
+  </div>
 </div>
