@@ -1,13 +1,22 @@
 {
   "name": "con-fusion",
   "version": "1.0.0",
+<<<<<<< HEAD
+=======
+  "main": "server.js",
+>>>>>>> final verison
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+<<<<<<< HEAD
     "e2e": "ng e2e"
+=======
+    "e2e": "ng e2e",
+    "heroku-postbuild": "ng build --prod"
+>>>>>>> final verison
   },
   "private": true,
   "dependencies": {
@@ -23,6 +32,10 @@
     "@angular/platform-browser-dynamic": "~8.2.11",
     "@angular/router": "~8.2.11",
     "enhanced-resolve": "3.3.0",
+<<<<<<< HEAD
+=======
+    "express": "^4.17.1",
+>>>>>>> final verison
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "json-server": "^0.15.1",
