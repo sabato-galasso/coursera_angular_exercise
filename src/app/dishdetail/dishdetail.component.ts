@@ -113,10 +113,8 @@ export class DishdetailComponent implements OnInit {
     this.comment = this.commentForm.value;
     let now = new Date();
     this.comment.date = now.toISOString();
-    debugger
     this.dish.comments.push(this.comment);
     this.dishcopy.comments.push(this.comment);
-    console.log(this.dishcopy)
 
     this.dishService.putDish(this.dishcopy)
       .subscribe(dish => {
