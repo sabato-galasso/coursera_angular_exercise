@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "json-server --watch db.json",
+    "start": "node index.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
